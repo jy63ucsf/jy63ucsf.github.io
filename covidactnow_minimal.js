@@ -4,7 +4,9 @@
 
     // Define the schema
     myConnector.getSchema = function(schemaCallback) {
-        var cols = [{
+        var cols = [
+ /*           
+        {
             id: "country",
             dataType: tableau.dataTypeEnum.string,
             geoRole: tableau.geographicRoleEnum.country_region
@@ -16,10 +18,13 @@
             id: "county",
             dataType: tableau.dataTypeEnum.string,
             geoRole: tableau.geographicRoleEnum.county
-        }, {
+        },
+*/
+    {
             id: "fips",
             dataType: tableau.dataTypeEnum.string
-        }, {
+        }
+/*            , {
             id: "lat",
             dataType: tableau.dataTypeEnum.string
         }, {
@@ -33,7 +38,9 @@
             dataType: tableau.dataTypeEnum.integer
         }, {
             id: "lastUpdatedDate",
-            dataType: tableau.dataTypeEnum.date        }
+            dataType: tableau.dataTypeEnum.date
+        }
+*/        
         ]; 
 
 
@@ -70,7 +77,8 @@
                 if (table.tableInfo.id == "covidActNow") {
                         // single-valued fields in JSON 
                         tableData.push({
-                            "fips" = thisrow.fips,
+                            "fips" = thisrow.fips
+/*                            ,
                             "country" = thisrow.country,
                             "state" = thisrow.state,
                             "county" = thisrow.county,
@@ -79,6 +87,7 @@
                             "long" = thisrow.long,
                             "population" = thisrow.population,
                             "lastUpdatedDate" = thisrow.lastUpdatedDate
+*/
                         });
                 }
 
